@@ -6,15 +6,15 @@ from typing import Dict, List, Mapping, Tuple
 # Configurable thresholds and tolerances
 # ============================================================
 
-ONSET_THR = 0.5
-OFFSET_THR = 0.5
+ONSET_THR = 0.4
+OFFSET_THR = 0.4
 
 # With 128 frames / full video, timestamps differ by ~5–20 sec.
 # So we MUST allow large tolerance.
 ONSET_TOL = 5.0
 OFFSET_TOL = 10.0
 
-MIN_NOTE_LEN = 0.05
+MIN_NOTE_LEN = 0.0
 
 @dataclass
 class NoteEvent:
@@ -185,3 +185,4 @@ def evaluate_clip(on_logits, off_logits, tsv_path, frame_times):
         "n_pred": len(pred_events),
         "n_gt": len(gt_events),
     }
+
